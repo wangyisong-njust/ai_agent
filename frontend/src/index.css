@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 text-gray-600 hover:bg-gray-100 hover:text-gray-900;
+  }
+  .sidebar-link.active {
+    @apply bg-nus-blue text-white hover:bg-blue-900 hover:text-white;
+  }
+
+  /* Chat bubbles */
+  .bubble-user {
+    @apply bg-nus-blue text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-lg text-sm leading-relaxed;
+  }
+  .bubble-ai {
+    @apply bg-white border border-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-2xl shadow-sm text-sm;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-nus-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-900 disabled:opacity-40 disabled:cursor-not-allowed transition-colors;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 disabled:opacity-40 transition-colors;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-nus-blue/30 focus:border-nus-blue transition-colors;
+  }
+
+  /* Status badges */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-green  { @apply bg-green-50 text-green-700 border border-green-200; }
+  .badge-red    { @apply bg-red-50 text-red-700 border border-red-200; }
+  .badge-yellow { @apply bg-yellow-50 text-yellow-700 border border-yellow-200; }
+  .badge-blue   { @apply bg-blue-50 text-blue-700 border border-blue-200; }
+  .badge-gray   { @apply bg-gray-100 text-gray-600 border border-gray-200; }
+
+  /* Thinking step */
+  .thinking-step {
+    @apply flex items-center gap-3 text-sm py-1.5 transition-all duration-500;
+  }
+  .thinking-dot {
+    @apply w-6 h-6 rounded-full flex items-center justify-center text-xs flex-shrink-0 font-bold;
+  }
+
+  /* Scrollbar */
+  .scrollable { @apply overflow-y-auto; scrollbar-width: thin; scrollbar-color: #e5e7eb transparent; }
+  .scrollable::-webkit-scrollbar { width: 4px; }
+  .scrollable::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 4px; }
+}
+
+/* Typing cursor */
+.typing-cursor::after {
+  content: '▋';
+  @apply animate-blink ml-0.5 text-nus-blue;
+}
+
+/* Prose overrides for chat */
+.prose-chat {
+  @apply prose prose-sm max-w-none text-gray-800;
+}
+.prose-chat a { @apply text-nus-blue underline; }
+.prose-chat code { @apply bg-gray-100 px-1 py-0.5 rounded text-xs font-mono; }
+.prose-chat pre { @apply bg-gray-900 text-gray-100 rounded-lg p-3 text-xs overflow-x-auto; }
+.prose-chat ul { @apply space-y-1; }
+.prose-chat p { @apply mb-2 last:mb-0; }

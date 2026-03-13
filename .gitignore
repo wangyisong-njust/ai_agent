@@ -1,0 +1,47 @@
+# Environment & secrets
+.env
+*.env
+data/user_prefs.json
+data/gcal_token.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Database & uploads
+data/*.db
+data/uploads/
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# ChromaDB vector store (large, regenerated on startup)
+backend/chroma_db/
+backend/data/chroma/
+
+# Claude memory
+.claude/
