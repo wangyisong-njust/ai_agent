@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Send, Bot, User, Sparkles, RotateCcw } from 'lucide-react'
+import { WS_BASE } from '../api'
 
 interface Message { role: 'user' | 'assistant'; content: string }
 
@@ -44,7 +45,7 @@ export default function ChatPage() {
     setInput('')
     setIsStreaming(true)
 
-    const ws = new WebSocket('ws://localhost:8000/api/knowledge/ws/chat')
+    const ws = new WebSocket(`${WS_BASE}/api/knowledge/ws/chat`)
     wsRef.current = ws
 
     ws.onopen = () => {
